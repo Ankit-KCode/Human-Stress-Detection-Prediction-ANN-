@@ -117,3 +117,36 @@ plt.tight_layout()
 plt.show()
 
 #------------------------------------------------------
+
+# MODEL BUILDING
+
+# Feature columns (X) and target column (y)
+X = df.drop(columns=['Stress Levels']) # Drop 'Stress Levels' as it's the target
+y = df['Stress Levels'] # Target
+
+# Splitting the dataset into training and testing sets (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+X_train.shape, X_test.shape
+
+
+
+# Scalling the features
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train_Scaled = scaler.fit_transform(X_train)
+X_test_Scaled = scaler.fit_transform(X_test)
+
+X_train_Scaled = pd.DataFrame(X_train_Scaled, columns=X_train.columns)
+X_test_Scaled = pd.DataFrame(X_test_Scaled, columns=X_test.columns)
+
+joblib.dump(scaler, 'scaler.pkl')
+
+X_train_Scaled.head(5)
+
+# Checking Mean value(0) and Standard Deviation(1) after Scaling
+np.round(X_train_Scaled.describe(), 1)
+
+
