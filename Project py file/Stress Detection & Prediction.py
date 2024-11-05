@@ -150,3 +150,98 @@ X_train_Scaled.head(5)
 np.round(X_train_Scaled.describe(), 1)
 
 
+#-----------------------Building ANN Model------------------------------
+
+# Convert labels to categorical (one-hot encoding)
+# y_train_encoded = to_categorical(y_train)
+# y_test_encoded = to_categorical(y_test)
+
+# Initialize the ANN model
+model = Sequential()
+
+# Adding input layer and the first hidden layer (neurons=64, activation='relu')
+model.add(Dense(units=64, activation= 'relu', input_shape=(X_train.shape[1],)))
+
+# Adding more hidden layers (neurons=32, activation='relu')
+model.add(Dense(units=32, activation= 'relu'))
+
+# Adding the output layer (for multi-class classification, use softmax)
+model.add(Dense(units=1, activation= 'sigmoid')) # 2 classes for stress levels (0-1)
+
+# Compile the model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# View the model Summary
+model.summary()
+
+
+
+# Training The Model------------------
+
+history = model.fit(X_train_Scaled, y_train, epochs=50, batch_size=32, validation_data=(X_test_Scaled, y_test))
+
+
+
+# Plot training & validation accuracy and loss over epochs
+# it helps to check overfitting
+plt.plot(history.history['accuracy'], label='Train Accuracy')
+plt.plot(history.history['val_accuracy'], label='Test Accuracy')
+plt.title('Model Accuracy')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.show()
+
+#As there is no gap between Train and Test Accuracy Means: There is not much Overfitting.
+
+
+# Plot training and loss over epochs.
+# it helps to check overfitting 
+plt.plot(history.history['loss'], label='Train Loss')
+plt.plot(history.history['val_loss'], label='Test Loss')
+plt.title('Model Loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+
+#as there is no gap between Train and Test Loss Means: There is not much Overfitting.
+
+
+
+# Evaluate The Model -----------------------------
+
+test_loss, test_accuracy = model.evaluate(X_test_Scaled, y_test)
+print(f'Test Accuracy: {test_accuracy*100: .2f}')
+print(f'Test Loss: {test_loss*100: .2f}')
+
+
+# Save The Model ---------------------------------
+
+model.save("Human Stress Predictions.h5")
+
+
+
+#---------------------Prediction On Unseen Data (Real Time Predictions)----------------
+
+# Loading the Model and Scaler for Deployment.
+from tensorflow.keras.models import load_model
+loaded_model = load_model('D:\Ankit-KCode\Human Stress Detection and Prediction\Human Stress Predictions.h5')
+loaded_scaler = joblib.load('D:\Ankit-KCode\Human Stress Detection and Prediction\scaler.pkl')
+
+
+# Make Prediction new Unseen Data
+new_data = np.array([[60,18,70,8,97,60,9,75]]) # Replace With actual new Data
+new_data_scaled = loaded_scaler.transform(new_data) 
+prediction = loaded_model.predict(new_data_scaled)
+
+#Output Prediction in Words.
+if prediction > 0.5:
+    print("Stressed")
+
+else:
+    print("Not Stressed")
+
+
+
+#----------------------------MODEL DEPLOYMENT------------------------------------
