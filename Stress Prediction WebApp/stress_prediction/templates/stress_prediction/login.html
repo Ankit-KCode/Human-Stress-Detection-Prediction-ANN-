@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login | Stressognostic</title>
+</head>
+<body>
+    {% include 'mainapp/navbar.html' %}
+    <div class="login-form">
+        <h2>Personal Details</h2>
+        <form method="post" action="{% url 'stress_check' %}">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="number" name="age" placeholder="Age" required>
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female" required> Female
+            <input type="text" name="location" placeholder="Location" required>
+
+            <h3>Login Details</h3>
+            <input type="email" name="email" placeholder="User Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

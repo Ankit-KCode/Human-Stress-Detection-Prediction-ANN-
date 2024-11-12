@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Check Stress</title>
+</head>
+<body>
+    {% include 'mainapp/navbar.html' %}
+    <h2>Enter Your Health Data</h2>
+    <form method="post" action="{% url 'stress_result' %}">
+        {% csrf_token %}
+        <input type="number" name="snoring_rate" placeholder="Snoring Rate" required>
+        <input type="number" name="respiratory_rate" placeholder="Respiratory Rate" required>
+        <input type="number" name="body_temp" placeholder="Body Temperature (F)" required>
+        <input type="number" name="limb_movement" placeholder="Limb Movement" required>
+        <input type="number" name="blood_oxygen" placeholder="Blood Oxygen" required>
+        <input type="number" name="eye_movement" placeholder="Eye Movement" required>
+        <input type="number" name="sleep_hours" placeholder="Sleep Hours" required>
+        <input type="number" name="heart_rate" placeholder="Heart Rate" required>
+        <button type="submit">Check Stress</button>
+    </form>
+</body>
+</html>

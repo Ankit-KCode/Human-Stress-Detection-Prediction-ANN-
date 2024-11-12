@@ -1,0 +1,443 @@
+/* Reset some default styling
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.navbar-left {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar-middle a, .navbar-right a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.login-button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* General Button Styles */
+/* button, .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover, .button:hover {
+    background-color: #0056b3;
+}
+
+/* Hero Section */
+/* .hero {
+    padding: 50px 20px;
+    background-color: #e0e7ff;
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: 3em;
+    color: #333;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+.hero .button {
+    margin-top: 25px;
+} */
+
+/* Responsive Form */
+/* .form-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-container label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+} */
+
+/* Result Box */
+/* .result-box {
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.result-box.stressed {
+    background-color: #ff4d4d;
+}
+
+.result-box.not-stressed {
+    background-color: #4caf50;
+} */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a3f44;
+    padding: 15px 20px;
+    color: #fff;
+}
+
+.nav-left, .nav-right {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.nav-center a {
+    margin: 0 15px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #f9f9f9;
+    transition: color 0.3s;
+}
+
+.nav-center a:hover {
+    color: #4ecdc4;
+}
+
+.nav-right a {
+    padding: 8px 15px;
+    background-color: #4ecdc4;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-right a:hover {
+    background-color: #3aafa9;
+}
+
+/* Hero Section Styles */
+.hero {
+    text-align: left;
+    padding: 80px 20px;
+    background-color: #eaf2f3;
+    color: #333;
+}
+
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    padding: 12px 25px;
+    background-color: #4ecdc4;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero .btn:hover {
+    background-color: #3aafa9;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form input[type="password"],
+form select,
+form button {
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+form input[type="radio"] {
+    margin-right: 10px;
+}
+
+form button {
+    background-color: #4ecdc4;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #3aafa9;
+}
+
+/* Result Box Styles */
+.result-box {
+    text-align: center;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.result-box .stressed {
+    color: #d9534f; /* Red for stressed */
+}
+
+.result-box .not-stressed {
+    color: #5cb85c; /* Green for not stressed */
+}
+
+/* Page-Specific Styles */
+h2, h3 {
+    text-align: center;
+    color: #3a3f44;
+    margin: 20px 0;
+}
+
+.about-page, .help-page, .contact-page {
+    padding: 20px;
+    font-size: 1.1em;
+}
+
+.about-page p, .help-page p, .contact-page p {
+    line-height: 1.8;
+}
+
+.contact-info p {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-center {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .hero .btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    form button {
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* css
+Copy code
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.result {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.2em;
+}
+ */
