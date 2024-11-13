@@ -1,36 +1,40 @@
-<!-- 
+{% load static %}
+
  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stressognostic</title>
-    <link rel="stylesheet" href="/Stress Prediction WebApp/stress_prediction/static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <nav>
-        <div class="nav-left">Stressognostic</div>
+        <div class="nav-left">STRESSOGNOSTIC</div>
         <div class="nav-center">
-            <a href=" ">Home</a>
-            <a href="/Stress Prediction WebApp/stress_prediction/templates/stress_prediction/about.html">About</a>
-            <a href="{% url 'help' %}">Help</a>
-            <a href="{% url 'contact' %}">Contact</a>
+            <a href="D:\Ankit-KCode\Human Stress Detection and Prediction\Stress Prediction WebApp\stress_prediction\templates\stress_prediction\home.html">HOME</a>
+            <a href="/Stress Prediction WebApp/stress_prediction/templates/stress_prediction/about.html">ABOUT</a>
+            <a href="{% url 'help' %}">HELP</a>
+            <a href="{% url 'contact' %}">CONTACT</a>
         </div>
         <div class="nav-right">
             <a href="/Stress Prediction WebApp/stress_prediction/templates/stress_prediction/login.html">Login</a>
         </div>
     </nav>
+    <div class="front-image"> <img src="{% static 'images/CHECK YOUR STRESS.png' %}" alt="Image"></div>
     <section class="hero">
-        <h1>Check Your Stress</h1>
-        <p>Project Description of Human Stress Prediction System</p>
-        <a href="{% url 'login' %}" class="btn">Check Stress</a>
+        <h1>CHECK YOUR</h1>
+        <h1>STRESS NOW</h1>
+        <P>EASY TO CHECK YOUR STRESS USING ANN</P>
+        <a href="{% url 'login' %}" class="btn">CHECK STRESS</a>
     </section>
 
     <footer>
         <p>&copy; 2024 Stressognostic. All rights reserved.</p>
+        <p>Designed & Developed By Ankit Kumar</p>
     </footer>
 </body>
-</html> -->
+</html>
 
 
 
@@ -50,7 +54,7 @@
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -62,7 +66,7 @@
 
     <div class="container">
         <h2>Stress Detection Prediction</h2>
-        <form method="POST" action="{% url 'predict' %}"> Predict Stress 
+        <form method="POST" action="{% url 'stress_prediction' %}"> Predict Stress 
             {% csrf_token %}
             <label>Snoring Rate:</label>
             <input type="number" name="snoring_rate" step="any" required>
@@ -99,4 +103,4 @@
     </div>
 
 </body>
-</html>
+</html> -->

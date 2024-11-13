@@ -128,7 +128,7 @@ button:hover, .button:hover {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f7f6;
+    background-color: #99D9D9;
     color: #333;
 }
 
@@ -149,9 +149,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3a3f44;
+    background-color: #fbfbfb;
     padding: 15px 20px;
-    color: #fff;
+    color: #12a1a1;
 }
 
 .nav-left, .nav-right {
@@ -163,7 +163,7 @@ nav {
     margin: 0 15px;
     font-size: 1em;
     font-weight: bold;
-    color: #f9f9f9;
+    color: #000000;
     transition: color 0.3s;
 }
 
@@ -184,27 +184,42 @@ nav {
 }
 
 /* Hero Section Styles */
+.front-image {
+    position: absolute;
+    left: 650px;
+    top: 85px;
+    /* transform: translateY(-2%); */
+    /* width: 1px; */
+    /* height: 10px; */
+
+}
+
+.front-image img{
+    width: 750px;
+}
+
 .hero {
     text-align: left;
-    padding: 80px 20px;
-    background-color: #eaf2f3;
+    padding: 165px 20px;
+    background-color: #99D9D9;
     color: #333;
 }
 
 .hero h1 {
-    font-size: 3em;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 5em;
+    font-weight:lighter;
+    /* margin-bottom: 10px; */
 }
 
 .hero p {
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-bottom: 30px;
+    
 }
 
 .hero .btn {
-    padding: 12px 25px;
-    background-color: #4ecdc4;
+    padding: 15px 30px;
+    background-color: #079289;
     color: #fff;
     font-size: 1.2em;
     font-weight: bold;
@@ -217,6 +232,15 @@ nav {
 .hero .btn:hover {
     background-color: #3aafa9;
 }
+
+footer {
+    position: absolute;
+    right: 160px;
+    bottom: 35px;
+    font-size: 25px;
+}
+
+
 
 /* Form Styles */
 form {

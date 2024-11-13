@@ -1,13 +1,14 @@
 import numpy as np
 from django.shortcuts import render
+from django.http import HttpResponse
 from tensorflow.keras.models import load_model
 import joblib
 
 # Load the model and scaler at the top to avoid reloading every time
-model = load_model('path/to/your/Human Stress Predictions.h5')
-scaler = joblib.load('path/to/your/scaler.pkl')
+model = load_model('D:\Ankit-KCode\Human Stress Detection and Prediction\Human Stress Predictions.h5')
+scaler = joblib.load('D:\Ankit-KCode\Human Stress Detection and Prediction\scaler.pkl')
 
-def predict_stress(request):
+def stress_prediction(request):
     prediction = None
     if request.method == 'POST':
         # Get form data
@@ -45,8 +46,8 @@ def help(request):
 def contact(request):
     return render(request, 'stress_prediction/contact.html')
 
-def login_view(request):
-    return render(request, 'stress_prediction/login.html')
+def login(request):
+    return render(request, 'login.html')
 
 def stress_check(request):
     return render(request, 'stress_prediction/stress_check.html')
