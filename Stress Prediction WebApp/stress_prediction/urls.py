@@ -1,12 +1,3 @@
-# from django.urls import path
-# from . import views
-
-# urlpatterns = [
-#     path('', views.predict_stress, name='predict'),
-# ]
-
-
-
 from django.urls import path
 from . import views
 
@@ -18,6 +9,11 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('stress-check/', views.stress_check, name='stress_check'),
     path('stress-result/', views.stress_result, name='stress_result'),
+
+#Sign In Page
+    path('signup', views.signup, name='signup'),
+    path('signuin', views.signin, name='signin'),
+    path('signout', views.signout, name='signout'),
 
     
 ]

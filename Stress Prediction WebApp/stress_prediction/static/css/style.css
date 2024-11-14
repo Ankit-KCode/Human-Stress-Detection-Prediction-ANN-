@@ -567,3 +567,48 @@ h2 {
     border-radius: 3px;
     display: inline-block;
 }
+
+.result {
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    width: 300px;
+}
+
+.not-stressed {
+    background-color: #3bbf3b; /* Green */
+}
+
+.stressed {
+    background-color: #ff5f5f; /* Red */
+}
+
+
+/* Update */
+.result-dashboard {
+    text-align: center;
+}
+
+.stressed {
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.not-stressed {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.personal-info {
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
+}
