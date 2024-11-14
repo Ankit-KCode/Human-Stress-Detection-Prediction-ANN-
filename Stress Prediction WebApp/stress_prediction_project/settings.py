@@ -43,7 +43,7 @@ ROOT_URLCONF = 'stress_prediction_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Specify the templates directory
+        'DIRS': [os.path.join(BASE_DIR, 'stress_prediction', 'templates')], #[BASE_DIR / 'templates'],  # Specify the templates directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

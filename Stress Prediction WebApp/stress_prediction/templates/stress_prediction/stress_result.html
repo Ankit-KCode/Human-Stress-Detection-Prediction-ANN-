@@ -1,16 +1,55 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Your Stress Result</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    {% include 'mainapp/navbar.html' %}
-    <h2>Your Stress Result</h2>
-    <div class="result-box">
-        <p>{{ result }}</p>
-    </div>
-    <h3>User Data:</h3>
-    <p>Name: {{ name }}</p>
-    <!-- Display other details here -->
+    <header>
+    <nav>
+        <div class="nav-left">STRESSOGNOSTIC</div>
+        <div class="nav-center">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/help">HELP</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+        <div class="nav-right">
+            <a href="/login">Login</a>
+        </div>
+    </nav>
+        <!-- <h1>STRESSOGNOSTIC</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/help">Help</a>
+            <a href="/contact">Contact</a>
+            <button onclick="location.href='/login'">Login</button>
+        </nav> -->
+    </header>
+
+    <main>
+        <h2>RESULT DASHBOARD</h2>
+
+        <!-- Prediction result area, to be dynamically set based on model prediction -->
+        <div id="result-box" class="result">
+            <h3 id="stress-level">Not Stressed</h3>
+        </div>
+
+        <!-- Personal Information Section -->
+        <section class="personal-info">
+            <h4>PERSONAL INFORMATION</h4>
+            <hr>
+            <div class="info">
+                <p><strong>Full Name :</strong> <span id="full-name">Sohan M</span></p>
+                <p><strong>Age :</strong> <span id="age">25</span></p>
+                <p><strong>Gender :</strong> <span id="gender">Male</span></p>
+                <p><strong>Location :</strong> <span id="location">UP</span></p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

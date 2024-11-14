@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Login | Stressognostic</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    {% include 'mainapp/navbar.html' %}
     <div class="login-form">
         <h2>Personal Details</h2>
         <form method="post" action="{% url 'stress_check' %}">

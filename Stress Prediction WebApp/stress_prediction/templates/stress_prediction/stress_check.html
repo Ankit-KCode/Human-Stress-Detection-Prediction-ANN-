@@ -1,16 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Stress Prediction WebApp/stress_prediction/static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
     <div class="container">
         <h2>Stress Detection Prediction</h2>
-        <form method="POST" action="{% url 'stress_prediction' %}"> Predict Stress 
+        <form method="POST" action="{% url 'stress_result' %}"> Predict Stress 
             {% csrf_token %}
             <label>Snoring Rate:</label>
             <input type="number" name="snoring_rate" step="any" required>
@@ -59,7 +60,6 @@
     <title>Check Stress</title>
 </head>
 <body>
-    {% include 'mainapp/navbar.html' %}
     <h2>Enter Your Health Data</h2>
     <form method="post" action="{% url 'stress_result' %}">
         {% csrf_token %}

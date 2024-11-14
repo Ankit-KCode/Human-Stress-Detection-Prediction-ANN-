@@ -30,7 +30,7 @@ def stress_prediction(request):
         result = model.predict(input_data)
         prediction = "Stress" if result[0][0] > 0.5 else "Not Stress"
 
-    return render(request, 'stress_detection/predict.html', {'prediction': prediction})
+    return render(request, 'stress_prediction/stress_result.html', {'prediction': prediction})
 
 from django.shortcuts import render, redirect
 
@@ -47,11 +47,11 @@ def contact(request):
     return render(request, 'stress_prediction/contact.html')
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'stress_prediction/login.html')
 
 def stress_check(request):
     return render(request, 'stress_prediction/stress_check.html')
 
 def stress_result(request):
-    # Use your model here for prediction based on inputs.
+    # model is here for prediction based on inputs.
     return render(request, 'stress_prediction/stress_result.html')

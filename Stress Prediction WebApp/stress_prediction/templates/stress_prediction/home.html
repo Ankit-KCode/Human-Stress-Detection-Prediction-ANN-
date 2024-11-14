@@ -12,13 +12,13 @@
     <nav>
         <div class="nav-left">STRESSOGNOSTIC</div>
         <div class="nav-center">
-            <a href="D:\Ankit-KCode\Human Stress Detection and Prediction\Stress Prediction WebApp\stress_prediction\templates\stress_prediction\home.html">HOME</a>
-            <a href="/Stress Prediction WebApp/stress_prediction/templates/stress_prediction/about.html">ABOUT</a>
-            <a href="{% url 'help' %}">HELP</a>
-            <a href="{% url 'contact' %}">CONTACT</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/help">HELP</a>
+            <a href="/contact">CONTACT</a>
         </div>
         <div class="nav-right">
-            <a href="/Stress Prediction WebApp/stress_prediction/templates/stress_prediction/login.html">Login</a>
+            <a href="/login">Login</a>
         </div>
     </nav>
     <div class="front-image"> <img src="{% static 'images/CHECK YOUR STRESS.png' %}" alt="Image"></div>
@@ -26,7 +26,7 @@
         <h1>CHECK YOUR</h1>
         <h1>STRESS NOW</h1>
         <P>EASY TO CHECK YOUR STRESS USING ANN</P>
-        <a href="{% url 'login' %}" class="btn">CHECK STRESS</a>
+        <a href="/login" class="btn">CHECK STRESS</a>
     </section>
 
     <footer>
