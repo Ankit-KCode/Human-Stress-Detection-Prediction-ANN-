@@ -83,7 +83,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    # BASE_DIR / 'css/style.css', # Path to static files
+     # Path to static files
     BASE_DIR / 'css/style.css',
 ]
 

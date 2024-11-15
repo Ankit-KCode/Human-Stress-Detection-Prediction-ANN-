@@ -1,8 +1,13 @@
 import numpy as np
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from tensorflow.keras.models import load_model
 import joblib
+#For Sign Up
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as auth_login, logout
 
 # Loading the model and scaler at the top to avoid reloading every time
 model = load_model('D:\Ankit-KCode\Human Stress Detection and Prediction\Human Stress Predictions.h5')
@@ -94,19 +99,51 @@ def stress_result(request):
     # model is here for prediction based on inputs.
     return render(request, 'stress_prediction/stress_result.html')
 
-# For Sign Up
+
+# For Sign Up --------------------------------------------------------------------------------
 def signup(request):
 
     if request.method == "POST":
         username = request.POST['username']
         fullname = request.POST['fullname']
         email = request.POST['email']
-        
+        password = request.POST['password']
+        Cpassword = request.POST['Cpassword']
+
+        myuser = User.objects.create_user(username, email, password)
+        myuser.fullname = fullname
+
+        myuser.save()
+
+        messages.success(request, "Your Account Has Been Successfully Created.")
+
+        return redirect('login')
 
     return render(request, 'stress_prediction/signup.html')
 
-def signin(request):
-    return render(request, 'stress_prediction/signin.html')
+
+def login(request):
+    if request.method == 'POST' :
+        username = request.POST['username']
+        password = request.POST['password']
+
+        #Authenticating the user
+        user = authenticate(request, username=username, password=password)
+
+        #User matches or not
+        if user is not None:
+            auth_login(request, user)
+            fullname = user.first_name
+            return render(request, "stress_prediction/home.html", {'fullname' : fullname})
+        
+        else:
+            messages.error(request, "Bad Credentials!")
+            return redirect('home')
+
+    return render(request, 'stress_prediction/login.html')
+
 
 def signout(request):
-    pass
+    logout(request)
+    messages.success(request, "Logged Out Successfully!")
+    return redirect('home')

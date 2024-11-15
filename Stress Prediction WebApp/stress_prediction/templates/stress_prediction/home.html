@@ -19,15 +19,35 @@
         </div>
         <div class="nav-right">
 
-            <!-- <a href="/login">Login</a> -->
-            <button type="submit"><a  href="/signup"> Sign Up </a></button>
-            <button type="submit"><a  href="/signin"> Sign In </a></button>
-            <button type="submit"><a  href="/signout"> Sign Out </a></button>
-        
+            
+            <button type="submit"><a  href="/login"> Log In </a></button>
+            
         </div>
     </nav>
     <div class="front-image"> <img src="{% static 'images/CHECK YOUR STRESS.png' %}" alt="Image"></div>
+    
     <section class="hero">
+
+
+           {% for message in messages %}
+           <div class="alert alert - {{ message.tags}} alert-dismissible fade show" role = "alert" >
+           <strong>Message:</strong> {{ message }}
+           <button type="button" class="close" data-dismiss="alert" aria-label="close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+           </div>
+           {% endfor %}
+        
+           {% if user.is_authenticated %}
+            <div class="log">
+                <h3>Your are Logged in!</h3>
+            </div>
+            <button type="submit"><a  href="/signout"> Sign Out </a></button>
+            {% else %}
+
+            <button type="submit"><a  href="/signup"> Sign Up </a></button>
+            {% endif %}
+
         <h1>CHECK YOUR</h1>
         <h1>STRESS NOW</h1>
         <P>EASY TO CHECK YOUR STRESS USING ANN</P>

@@ -8,18 +8,26 @@
 <body>
     <div class="login-form">
         <h2>Personal Details</h2>
-        <form method="post" action="{% url 'stress_check' %}">
+        <form action="/login" method="post">
             {% csrf_token %}
-            <input type="text" name="name" placeholder="Name" required>
+            <!-- <input type="text" name="name" placeholder="Name" required>
             <input type="number" name="age" placeholder="Age" required>
             <label>Gender:</label>
             <input type="radio" name="gender" value="Male" required> Male
             <input type="radio" name="gender" value="Female" required> Female
-            <input type="text" name="location" placeholder="Location" required>
+            <input type="text" name="location" placeholder="Location" required> -->
+
 
             <h3>Login Details</h3>
-            <input type="email" name="email" placeholder="User Email" required>
-            <input type="password" name="password" placeholder="Password" required>
+            <!-- <input type="email" name="email" placeholder="User Email" required> -->
+            <label for="">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter Your Username" required>
+            <br>
+
+            <label for="">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Your Password" required>
+            <br>
+
             <button type="submit">Login</button>
         </form>
     </div>
