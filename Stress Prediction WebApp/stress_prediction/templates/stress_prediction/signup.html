@@ -1,14 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Stressognostic</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Sign Up</h1>
+    <nav>
+        <div class="nav-left">STRESSOGNOSTIC</div>
+        <div class="nav-center">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/help">HELP</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+        <div class="nav-right">
 
-    <form action="/signup" method="post">
+            {% if user.is_authenticated %}
+            <div class="login-message">
+                <h3>Your are Logged in ✅</h3>
+            </div>
+            <a  href="/signout"> Sign Out</a>
+            {% else %}
+
+            <a  href="/signup"> Sign Up</a>
+            {% endif %}
+            
+            <a  href="/login"> Log In </a>
+            
+        </div>
+    </nav>
+
+    <div>
+    <h2>Sign Up Dashboard</h2>
+
+    <form class="signup-form" action="/signup" method="post">
         {% csrf_token %}
 
         <label for="">Username</label>
@@ -34,6 +62,7 @@
         <button type="submit">Sign Up</button>
 
     </form>
+    </div>
 
 </body>
 </html>

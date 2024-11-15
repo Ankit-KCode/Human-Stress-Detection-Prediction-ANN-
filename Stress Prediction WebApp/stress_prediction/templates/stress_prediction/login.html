@@ -6,8 +6,33 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <nav>
+        <div class="nav-left">STRESSOGNOSTIC</div>
+        <div class="nav-center">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/help">HELP</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+        <div class="nav-right">
+
+            {% if user.is_authenticated %}
+            <div class="login-message">
+                <h3>Your are Logged in ✅</h3>
+            </div>
+            <a  href="/signout"> Sign Out</a>
+            {% else %}
+
+            <a  href="/signup"> Sign Up</a>
+            {% endif %}
+            
+            <a  href="/login"> Log In </a>
+            
+        </div>
+    </nav>
+
     <div class="login-form">
-        <h2>Personal Details</h2>
+        <h2>LOGIN DASHBOARD</h2>
         <form action="/login" method="post">
             {% csrf_token %}
             <!-- <input type="text" name="name" placeholder="Name" required>
@@ -29,7 +54,13 @@
             <br>
 
             <button type="submit">Login</button>
+
         </form>
+        <form action="/signup">
+            <h5>New User | Create an Account</h5>
+            <button type="submit"><a  href="/signup"> Sign Up </a></button>
+        </form>
+
     </div>
 </body>
 </html>

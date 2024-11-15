@@ -9,6 +9,31 @@
 </head>
 <body>
 
+    <nav>
+        <div class="nav-left">STRESSOGNOSTIC</div>
+        <div class="nav-center">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/help">HELP</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+        <div class="nav-right">
+
+            {% if user.is_authenticated %}
+            <div class="login-message">
+                <h3>Your are Logged in ✅</h3>
+            </div>
+            <a  href="/signout"> Sign Out</a>
+            {% else %}
+
+            <a  href="/signup"> Sign Up</a>
+            {% endif %}
+            
+            <a  href="/login"> Log In </a>
+            
+        </div>
+    </nav>
+
     <div class="container">
         <h2>Stress Detection Prediction</h2>
         <form method="POST" action="{% url 'stress_result' %}"> Predict Stress 

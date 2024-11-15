@@ -149,7 +149,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fbfbfb;
+    background-color: #ffffff;
     padding: 15px 20px;
     color: #12a1a1;
 }
@@ -168,19 +168,26 @@ nav {
 }
 
 .nav-center a:hover {
-    color: #4ecdc4;
+    color: #40c3ba;
+}
+
+.login-message{
+    position: absolute;
+    top: 50px;
+    right: 10px;
 }
 
 .nav-right a {
-    padding: 8px 15px;
+    padding: 5px 10px;
+    margin: 5px 5px ;
     background-color: #4ecdc4;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 4px;
     transition: background-color 0.3s;
 }
 
 .nav-right a:hover {
-    background-color: #3aafa9;
+    background-color: #259590;
 }
 
 /* Hero Section Styles */
@@ -240,15 +247,29 @@ footer {
     font-size: 25px;
 }
 
+/* Form Styles ---------------------------------------------------------------------*/
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 500px;
+    margin: 1px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 
-/* Form Styles */
+
+
+
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     max-width: 500px;
-    margin: 40px auto;
+    margin: 20px auto;
     padding: 30px;
     background-color: #fff;
     border-radius: 8px;
