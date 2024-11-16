@@ -1,12 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
     <nav>
@@ -23,21 +25,22 @@
             <div class="login-message">
                 <h3>Your are Logged in ✅</h3>
             </div>
-            <a  href="/signout"> Sign Out</a>
+            <a href="/signout"> Sign Out</a>
             {% else %}
 
-            <a  href="/signup"> Sign Up</a>
+            <a href="/signup"> Sign Up</a>
             {% endif %}
-            
-            <a  href="/login"> Log In </a>
-            
+
+            <a href="/login"> Log In </a>
+
         </div>
     </nav>
 
     <div class="container">
         <h2>Stress Detection Prediction</h2>
-        <form method="POST" action="{% url 'stress_result' %}"> Predict Stress 
+        <form method="POST" action="{% url 'stress_check' %}"> Predict Stress
             {% csrf_token %}
+
             <label>Snoring Rate:</label>
             <input type="number" name="snoring_rate" step="any" required>
 
@@ -64,39 +67,8 @@
 
             <button type="submit">Predict Stress Level</button>
         </form>
-
-        {% if prediction %}
-            <div class="result">
-                <h3>Prediction Result: {{ prediction }}</h3>
-            </div>
-        {% endif %}
     </div>
 
 </body>
+
 </html>
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Check Stress</title>
-</head>
-<body>
-    <h2>Enter Your Health Data</h2>
-    <form method="post" action="{% url 'stress_result' %}">
-        {% csrf_token %}
-        <input type="number" name="snoring_rate" placeholder="Snoring Rate" required>
-        <input type="number" name="respiratory_rate" placeholder="Respiratory Rate" required>
-        <input type="number" name="body_temp" placeholder="Body Temperature (F)" required>
-        <input type="number" name="limb_movement" placeholder="Limb Movement" required>
-        <input type="number" name="blood_oxygen" placeholder="Blood Oxygen" required>
-        <input type="number" name="eye_movement" placeholder="Eye Movement" required>
-        <input type="number" name="sleep_hours" placeholder="Sleep Hours" required>
-        <input type="number" name="heart_rate" placeholder="Heart Rate" required>
-        <button type="submit">Check Stress</button>
-    </form>
-</body>
-</html> -->

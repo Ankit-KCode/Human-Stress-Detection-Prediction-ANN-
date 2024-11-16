@@ -33,12 +33,12 @@
         </div>
     </nav>
 
-    <div>
-    <h2>Sign Up Dashboard</h2>
+    
+<main>
 
     <form class="signup-form" action="/signup" method="post">
         {% csrf_token %}
-
+        <h2>Sign Up Dashboard</h2>
         <label for="">Username</label>
         <input type="text" id="username" name="username" placeholder="Create Your Username" required>
         <br>
@@ -62,7 +62,8 @@
         <button type="submit">Sign Up</button>
 
     </form>
-    </div>
+</main>
+    
 
 </body>
 </html>

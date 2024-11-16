@@ -138,10 +138,13 @@ a {
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: auto;
+    /* padding: 10px; */
+    position: absolute;
+    left: 11%;
+    top: 8%;
 }
 
 /* Navbar Styles */
@@ -152,6 +155,11 @@ nav {
     background-color: #ffffff;
     padding: 15px 20px;
     color: #12a1a1;
+    position:fixed;
+    top: 0px;
+    width: 1440px;
+    z-index: 5;
+    border-bottom: 1px solid #555353;
 }
 
 .nav-left, .nav-right {
@@ -182,6 +190,7 @@ nav {
     margin: 5px 5px ;
     background-color: #4ecdc4;
     color: #fff;
+    border: 1px solid rgb(9, 162, 151);
     border-radius: 4px;
     transition: background-color 0.3s;
 }
@@ -251,17 +260,16 @@ footer {
 .signup-form{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
     max-width: 500px;
     margin: 1px auto;
     padding: 30px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 80px;
 }
-
-
-
 
 
 form {

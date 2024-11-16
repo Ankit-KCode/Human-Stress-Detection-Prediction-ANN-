@@ -1,13 +1,15 @@
 {% load static %}
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stressognostic</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
     <nav>
         <div class="nav-left">STRESSOGNOSTIC</div>
@@ -23,31 +25,31 @@
             <div class="login-message">
                 <h3>Your are Logged in ✅</h3>
             </div>
-            <a  href="/signout"> Sign Out</a>
+            <a href="/signout"> Sign Out</a>
             {% else %}
 
-            <a  href="/signup"> Sign Up</a>
+            <a href="/signup"> Sign Up</a>
             {% endif %}
-            
-            <a  href="/login"> Log In </a>
-            
+
+            <a href="/login"> Log In </a>
+
         </div>
     </nav>
     <div class="front-image"> <img src="{% static 'images/CHECK YOUR STRESS.png' %}" alt="Image"></div>
-    
+
     <section class="hero">
 
 
-           {% for message in messages %}
-           <div class="alert alert - {{ message.tags}} alert-dismissible fade show" role = "alert" >
-           <strong>Message:</strong> {{ message }}
-           <button type="button" class="close" data-dismiss="alert" aria-label="close">
-           <span aria-hidden="true">&times;</span>
-           </button>
-           </div>
-           {% endfor %}
-        
-           <!-- {% if user.is_authenticated %}
+        {% for message in messages %}
+        <div class="alert alert - {{ message.tags}} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+
+        <!-- {% if user.is_authenticated %}
             <div class="log">
                 <h3>Your are Logged in!</h3>
             </div>
@@ -60,13 +62,13 @@
         <h1>CHECK YOUR</h1>
         <h1>STRESS NOW</h1>
         <P>EASY TO CHECK YOUR STRESS USING ANN</P>
-        
+
         {% if user.is_authenticated %}
         <a href="/stress-check" class="btn">CHECK STRESS</a>
         {% else %}
         <a href="/login" class="btn">LOGIN & CHECK</a>
         {% endif %}
-        
+
     </section>
 
     <footer>
@@ -74,6 +76,7 @@
         <p>Designed & Developed By Ankit Kumar</p>
     </footer>
 </body>
+
 </html>
 
 

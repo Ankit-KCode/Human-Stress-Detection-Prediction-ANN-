@@ -41,15 +41,23 @@
     <main>
         <div class="result-dashboard">
             <h1>RESULT DASHBOARD</h1>
-            <div class="{% if prediction == 'Stressed' %}stressed{% else %}not-stressed{% endif %}">
+            <div class="{% if prediction == 'Stress' %}stressed{% else %}not-stressed{% endif %}">
                 <h2>{{ prediction }}</h2>
             </div>
+            <div><h2>Stress Prediction: {{ prediction }}</h2></div>
+
+            <div>{% if prediction %}
+                <div class="result">
+                    <h3>Prediction Result: {{ prediction }}</h3>
+                </div>
+            {% endif %}</div>
+
             <div class="personal-info">
                 <h3>PERSONAL INFORMATION</h3>
-                <p>Full Name: {{ user_info.full_name }}</p>
-                <p>Age: {{ user_info.age }}</p>
-                <p>Gender: {{ user_info.gender }}</p>
-                <p>Location: {{ user_info.location }}</p>
+                <p>Full Name: {{ full_name }}</p>
+                <p>Age: {{ age }}</p>
+                <p>Gender: {{ gender }}</p>
+                <p>Location: {{ location }}</p>
             </div>
         </div>
         
