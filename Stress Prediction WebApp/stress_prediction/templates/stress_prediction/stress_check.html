@@ -41,28 +41,28 @@
         <form method="POST" action="{% url 'stress_check' %}"> Predict Stress
             {% csrf_token %}
 
-            <label>Snoring Rate:</label>
+            <label>Snoring Rate: [45 - 100]</label>
             <input type="number" name="snoring_rate" step="any" required>
 
-            <label>Respiratory Rate:</label>
+            <label>Respiratory Rate: [15 - 35]</label>
             <input type="number" name="respiratory_rate" step="any" required>
 
-            <label>Body Temperature:</label>
+            <label>Body Temperature(°F): [80 - 98]</label>
             <input type="number" name="body_temperature" step="any" required>
 
-            <label>Limb Movement:</label>
+            <label>Limb Movement: [05 - 20]</label>
             <input type="number" name="limb_movement" step="any" required>
 
-            <label>Blood Oxygen:</label>
+            <label>Blood Oxygen: [85 - 100]</label>
             <input type="number" name="blood_oxygen" step="any" required>
 
-            <label>Eye Movement:</label>
+            <label>Eye Movement: [64 - 105]</label>
             <input type="number" name="eye_movement" step="any" required>
 
-            <label>Sleep Hours:</label>
+            <label>Sleep Hours: [0 - 10]</label>
             <input type="number" name="sleep_hours" step="any" required>
 
-            <label>Heart Rate:</label>
+            <label>Heart Rate: [50 - 90]</label>
             <input type="number" name="heart_rate" step="any" required>
 
             <button type="submit">Predict Stress Level</button>

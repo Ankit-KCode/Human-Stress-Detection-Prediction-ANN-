@@ -21,7 +21,7 @@
     
                 {% if user.is_authenticated %}
                 <div class="login-message">
-                    <h3>Your are Logged in ✅</h3>
+                    <h3>HI ! </h3>
                 </div>
                 <a  href="/signout"> Sign Out</a>
                 {% else %}
@@ -34,24 +34,28 @@
             </div>
         </nav>
 
-        
-       
     </header>
+
 
     <main>
         <div class="result-dashboard">
             <h1>RESULT DASHBOARD</h1>
-            <div class="{% if prediction == 'Stress' %}stressed{% else %}not-stressed{% endif %}">
+            <!-- <div class="{% if prediction == 'Stress' %}stressed{% else %}not-stressed{% endif %}">
                 <h2>{{ prediction }}</h2>
             </div>
-            <div><h2>Stress Prediction: {{ prediction }}</h2></div>
+            <div><h2>Stress Prediction: {{ prediction }}</h2></div> -->
 
+            <div class="result-header">
+                <h2>YOUR PREDICTION RESULT</h2>
+            </div>
+            
             <div>{% if prediction %}
-                <div class="result">
-                    <h3>Prediction Result: {{ prediction }}</h3>
-                </div>
-            {% endif %}</div>
+                <div class="result-text {% if prediction == 'Stressed' %}stressed{% else %}not-stressed{% endif %}">
+                    <h3>{{ prediction }}</h3>
+                </div>{% endif %}
+            </div>
 
+            
             <div class="personal-info">
                 <h3>PERSONAL INFORMATION</h3>
                 <p>Full Name: {{ full_name }}</p>

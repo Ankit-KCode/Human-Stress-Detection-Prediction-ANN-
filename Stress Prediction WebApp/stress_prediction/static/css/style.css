@@ -147,7 +147,7 @@ a {
     top: 8%;
 }
 
-/* Navbar Styles */
+/* ----------------------------------- Navbar Styles ------------------------------------ */
 nav {
     display: flex;
     justify-content: space-between;
@@ -199,7 +199,9 @@ nav {
     background-color: #259590;
 }
 
-/* Hero Section Styles */
+
+
+/* ------------------------------------ Hero Section Styles --------------------------------*/
 .front-image {
     position: absolute;
     left: 650px;
@@ -256,7 +258,7 @@ footer {
     font-size: 25px;
 }
 
-/* Form Styles ---------------------------------------------------------------------*/
+/* ----------------------------------- Form Styles ----------------------------------*/
 .signup-form{
     display: flex;
     flex-direction: column;
@@ -313,26 +315,6 @@ form button:hover {
     background-color: #3aafa9;
 }
 
-/* Result Box Styles */
-.result-box {
-    text-align: center;
-    padding: 30px;
-    margin: 40px auto;
-    max-width: 500px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.result-box .stressed {
-    color: #d9534f; /* Red for stressed */
-}
-
-.result-box .not-stressed {
-    color: #5cb85c; /* Green for not stressed */
-}
 
 /* Page-Specific Styles */
 h2, h3 {
@@ -399,8 +381,31 @@ h2, h3 {
 
 
 
+/* ----------------------------- Result Page Styles --------------------------------------*/
+.result-text {
+    text-align: center;
+    padding: 20px;
+    margin: 40px auto;
+    max-width: 350px;
+    background-color: #fff;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 2.2em;
+    font-weight: bold;
+    color: white; 
+}
 
+/* Specific styles for stressed results */
+.result-text.stressed {
+    background-color: #d35652; /* Red for stressed */
+    color: white;
+}
 
+/* Specific styles for not stressed results */
+.result-text.not-stressed {
+    background-color: #1aaf1a; /* Green for not stressed */
+    color: white;
+}
 
 
 

@@ -6,7 +6,7 @@ import joblib
 #For Sign Up
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+# from django.contrib.auth import authenticate, login
 from django.contrib.auth import authenticate, login as auth_login, logout
 
 # -------- Loading the model and scaler at the top to avoid reloading every time ----------------
@@ -46,7 +46,7 @@ def stress_prediction(request):
         request.session['prediction'] = prediction
         return redirect('stress_result')
     else:
-        return render(request, 'stress_prediction/stress_check.html') 
+        return render(request, 'stress_prediction/stress_check.html')
     
 
 
@@ -75,14 +75,16 @@ def stress_check(request):
 def stress_result(request):
     prediction = request.session.get('prediction', 'No Result Available')
     print("Displaying Prediction:", prediction)
-    # full_name = request.session.get('full_name', 'N/A')
+    # fullname = request.session.get('fullname', 'N/A')
+    # username = request.session.get('username', 'N/A')
     # age = request.session.get('age', 'N/A')
     # gender = request.session.get('gender', 'N/A')
     # location = request.session.get('location', 'N/A')
 
     return render(request, 'stress_prediction/stress_result.html', {
-        'prediction': prediction
-        # 'full_name': full_name,
+        'prediction': prediction,
+        # 'username': username
+        # 'fullname' : fullname
         # 'age': age,
         # 'gender': gender,
         # 'location': location
@@ -132,13 +134,14 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             fullname = user.first_name
-            return render(request, "stress_prediction/home.html", {'fullname' : fullname})
+            return render(request, "stress_prediction/home.html", {'fullname' : fullname},)
         
         else:
             messages.error(request, "Bad Credentials!")
             return redirect('home')
 
-    return render(request, 'stress_prediction/login.html')
+    return render(request, 'stress_prediction/login.html')  
+
 
 #Person Information
 # def login(request):

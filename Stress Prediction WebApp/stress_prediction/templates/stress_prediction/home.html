@@ -39,7 +39,6 @@
 
     <section class="hero">
 
-
         {% for message in messages %}
         <div class="alert alert - {{ message.tags}} alert-dismissible fade show" role="alert">
             <strong>Message:</strong> {{ message }}
@@ -49,15 +48,6 @@
         </div>
         {% endfor %}
 
-        <!-- {% if user.is_authenticated %}
-            <div class="log">
-                <h3>Your are Logged in!</h3>
-            </div>
-            <button type="submit"><a  href="/signout"> Sign Out </a></button>
-            {% else %}
-
-            <button type="submit"><a  href="/signup"> Sign Up </a></button>
-            {% endif %} -->
 
         <h1>CHECK YOUR</h1>
         <h1>STRESS NOW</h1>
@@ -79,71 +69,3 @@
 
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/Stress Prediction WebApp/stress_prediction/static/css/style.css">
-</head>
-<body>
-
-    <div class="container">
-        <h2>Stress Detection Prediction</h2>
-        <form method="POST" action="{% url 'stress_prediction' %}"> Predict Stress 
-            {% csrf_token %}
-            <label>Snoring Rate:</label>
-            <input type="number" name="snoring_rate" step="any" required>
-
-            <label>Respiratory Rate:</label>
-            <input type="number" name="respiratory_rate" step="any" required>
-
-            <label>Body Temperature:</label>
-            <input type="number" name="body_temperature" step="any" required>
-
-            <label>Limb Movement:</label>
-            <input type="number" name="limb_movement" step="any" required>
-
-            <label>Blood Oxygen:</label>
-            <input type="number" name="blood_oxygen" step="any" required>
-
-            <label>Eye Movement:</label>
-            <input type="number" name="eye_movement" step="any" required>
-
-            <label>Sleep Hours:</label>
-            <input type="number" name="sleep_hours" step="any" required>
-
-            <label>Heart Rate:</label>
-            <input type="number" name="heart_rate" step="any" required>
-
-            <button type="submit">Predict Stress Level</button>
-        </form>
-
-        {% if prediction %}
-            <div class="result">
-                <h3>Prediction Result: {{ prediction }}</h3>
-            </div>
-        {% endif %}
-    </div>
-
-</body>
-</html> -->
