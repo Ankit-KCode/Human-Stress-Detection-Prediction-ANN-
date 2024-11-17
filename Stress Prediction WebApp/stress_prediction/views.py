@@ -55,7 +55,8 @@ def stress_prediction(request):
 from django.shortcuts import render, redirect
 
 def home(request):
-    return render(request, 'stress_prediction/home.html')
+    username = request.session.get('username', 'N/A')
+    return render(request, 'stress_prediction/home.html',{'username': username,})
 
 def about(request):
     return render(request, 'stress_prediction/about.html')
@@ -67,27 +68,54 @@ def contact(request):
     return render(request, 'stress_prediction/contact.html')
 
 def login(request):
-    return render(request, 'stress_prediction/login.html')
+    if request.method == 'POST' :
+        username = request.POST['username']
+        password = request.POST['password']
+
+        # Store personal information in the session
+        request.session['username'] = request.POST.get('username')
+        request.session['name'] = request.POST.get('name')
+        request.session['age'] = request.POST.get('age')
+        request.session['gender'] = request.POST.get('gender')
+        request.session['location'] = request.POST.get('location')
+
+        #Authenticating the user
+        user = authenticate(request, username=username, password=password)
+
+        #User matches or not
+        if user is not None:
+            auth_login(request, user)
+            fullname = user.first_name
+            return render(request, "stress_prediction/home.html", {'fullname' : fullname},)
+        
+        else:
+            messages.error(request, "Bad Credentials!")
+            return redirect('home')
+
+    return render(request, 'stress_prediction/login.html')  
+
 
 def stress_check(request):
     return render(request, 'stress_prediction/stress_check.html')
 
+
 def stress_result(request):
     prediction = request.session.get('prediction', 'No Result Available')
     print("Displaying Prediction:", prediction)
-    # fullname = request.session.get('fullname', 'N/A')
-    # username = request.session.get('username', 'N/A')
-    # age = request.session.get('age', 'N/A')
-    # gender = request.session.get('gender', 'N/A')
-    # location = request.session.get('location', 'N/A')
+    fullname = request.session.get('fullname', 'N/A')
+    username = request.session.get('username', 'N/A')
+    name = request.session.get('name', 'N/A')
+    age = request.session.get('age', 'N/A')
+    gender = request.session.get('gender', 'N/A')
+    location = request.session.get('location', 'N/A')
 
     return render(request, 'stress_prediction/stress_result.html', {
         'prediction': prediction,
-        # 'username': username
-        # 'fullname' : fullname
-        # 'age': age,
-        # 'gender': gender,
-        # 'location': location
+        'username': username,
+        'name' : name,
+        'age': age,
+        'gender': gender,
+        'location': location
         })
 
 
@@ -119,37 +147,3 @@ def signout(request):
     return redirect('home')
 
 
-
-# --------------------------- Login and Personal Details Functions --------------------------------
-
-def login(request):
-    if request.method == 'POST' :
-        username = request.POST['username']
-        password = request.POST['password']
-
-        #Authenticating the user
-        user = authenticate(request, username=username, password=password)
-
-        #User matches or not
-        if user is not None:
-            auth_login(request, user)
-            fullname = user.first_name
-            return render(request, "stress_prediction/home.html", {'fullname' : fullname},)
-        
-        else:
-            messages.error(request, "Bad Credentials!")
-            return redirect('home')
-
-    return render(request, 'stress_prediction/login.html')  
-
-
-#Person Information
-# def login(request):
-#     if request.method == 'POST':
-#         # Store personal information in the session
-#         request.session['full_name'] = request.POST.get('full_name')
-#         request.session['age'] = request.POST.get('age')
-#         request.session['gender'] = request.POST.get('gender')
-#         request.session['location'] = request.POST.get('location')
-#         return redirect('stress_check')  # Redirect to stress check page after login
-#     return render(request, 'stress_prediction/login.html')

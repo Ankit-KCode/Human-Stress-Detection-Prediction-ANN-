@@ -20,9 +20,9 @@
             <div class="nav-right">
     
                 {% if user.is_authenticated %}
-                <div class="login-message">
+                <!-- <div class="login-message">
                     <h3>HI ! </h3>
-                </div>
+                </div> -->
                 <a  href="/signout"> Sign Out</a>
                 {% else %}
     
@@ -58,7 +58,8 @@
             
             <div class="personal-info">
                 <h3>PERSONAL INFORMATION</h3>
-                <p>Full Name: {{ full_name }}</p>
+                <p>Username: {{ username }}</p>
+                <p>Full Name: {{ name }}</p>
                 <p>Age: {{ age }}</p>
                 <p>Gender: {{ gender }}</p>
                 <p>Location: {{ location }}</p>

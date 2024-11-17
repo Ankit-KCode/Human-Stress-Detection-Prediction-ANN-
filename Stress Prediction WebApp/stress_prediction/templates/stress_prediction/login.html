@@ -17,9 +17,9 @@
         <div class="nav-right">
 
             {% if user.is_authenticated %}
-            <div class="login-message">
+            <!-- <div class="login-message">
                 <h3>Your are Logged in ✅</h3>
-            </div>
+            </div> -->
             <a  href="/signout"> Sign Out</a>
             {% else %}
 
@@ -35,14 +35,15 @@
 <main>
     <div class="login-form">
         <h2>LOGIN DASHBOARD</h2>
+
         <form action="/login" method="post">
             {% csrf_token %}
-            <!-- <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="name" placeholder="Name" required>
             <input type="number" name="age" placeholder="Age" required>
             <label>Gender:</label>
             <input type="radio" name="gender" value="Male" required> Male
             <input type="radio" name="gender" value="Female" required> Female
-            <input type="text" name="location" placeholder="Location" required> -->
+            <input type="text" name="location" placeholder="Location" required>
 
 
             <h3>Login Details</h3>
@@ -57,6 +58,7 @@
             <button type="submit">Login</button>
 
         </form>
+
         <form action="/signup">
             <h5>New User | Create an Account</h5>
             <button type="submit"><a  href="/signup"> Sign Up </a></button>

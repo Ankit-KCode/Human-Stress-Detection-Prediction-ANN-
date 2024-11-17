@@ -181,8 +181,12 @@ nav {
 
 .login-message{
     position: absolute;
-    top: 50px;
+    top: 65px;
     right: 10px;
+    margin: 5px;
+}
+.login-message h3{
+    margin: 5px;
 }
 
 .nav-right a {

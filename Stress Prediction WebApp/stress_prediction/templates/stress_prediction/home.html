@@ -23,7 +23,8 @@
 
             {% if user.is_authenticated %}
             <div class="login-message">
-                <h3>Your are Logged in ✅</h3>
+                <h4>Your are Logged in ✅</h4>
+                <h3>⟫⟫ {{ username }}</h3>
             </div>
             <a href="/signout"> Sign Out</a>
             {% else %}
