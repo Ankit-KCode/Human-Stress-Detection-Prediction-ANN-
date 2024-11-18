@@ -3,19 +3,29 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from tensorflow.keras.models import load_model
 import joblib
-#For Sign Up
+
+# For Sign Up-------------------------------
 from django.contrib.auth.models import User
 from django.contrib import messages
+from .models import Signup_Data
+
+# For SQL Implementation ------------------
+import mysql.connector as sql
+import mysql.connector
+
 # from django.contrib.auth import authenticate, login
 from django.contrib.auth import authenticate, login as auth_login, logout
 
-# -------- Loading the model and scaler at the top to avoid reloading every time ----------------
+
+
+
+# ---------------- Loading the model and scaler at the top to avoid reloading every time ----------------
 model = load_model('D:\Ankit-KCode\Human Stress Detection and Prediction\Human Stress Predictions.h5')
 scaler = joblib.load('D:\Ankit-KCode\Human Stress Detection and Prediction\scaler.pkl')
 
 
 
-# ---------------------------Stress Prediction Logic Function --------------------------------------
+# --------------------------------Stress Prediction Logic Function --------------------------------------
 
 def stress_prediction(request):
     # prediction = None
@@ -95,6 +105,7 @@ def login(request):
     return render(request, 'stress_prediction/login.html')  
 
 
+
 def stress_check(request):
     return render(request, 'stress_prediction/stress_check.html')
 
@@ -135,11 +146,45 @@ def signup(request):
 
         myuser.save()
 
+        #----SQL Implementation
+        conn = sql.connect(
+        host = '127.0.0.1',
+        user='root',
+        password='Ankitsql6060@#',
+        database= 'stress_prediction_app_db'
+        )
+
+        cursor = conn.cursor()
+
+        comm = "INSERT INTO signup (username, fullname, email, password, Cpassword) VALUES (%s, %s, %s, %s, %s)"
+        cursor.execute(comm, (username, fullname, email, password, Cpassword))
+        conn.commit()
+        conn.close()
+        #-----
+
         messages.success(request, "Your Account Has Been Successfully Created.")
 
         return redirect('login')
 
     return render(request, 'stress_prediction/signup.html')
+
+
+#----------INSERTING SIGNUP DATA TO SQL DATABASE TABLE-----------
+def insert_signup_user(request):
+    iusername = request.POST['username'];
+    ifullname = request.POST['fullname'];
+    iemail = request.POST['email'];
+    ipassword = request.POST['password'];
+    iCpassword = request.POST['Cpassword'];
+
+    us = Signup_Data(username=iusername, fullname=ifullname, email=iemail, password=ipassword, Cpassword=iCpassword);
+    us.save();
+    
+    return render(request, 'stress_prediction/login.html', {})
+
+
+#-------------------------------------------------------------
+
 
 def signout(request):
     logout(request)

@@ -58,11 +58,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'stress_prediction_project.wsgi.application'
 
-# Database
+# Database To MySQL ------------------------------------------
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+
+    'default' : {
+        'ENGINE' : 'django.db.backends.mysql',
+        'NAME' : 'stress_prediction_app_db',
+        'USER' : 'root',
+        'PASSWORD' : 'Ankitsql6060@#',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
     }
 }
 
