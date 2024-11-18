@@ -1,13 +1,112 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>About | Stressognostic</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Stressognostic</title>
+  <!-- <link rel="stylesheet" href="{% static 'css/about.css' %}"> -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    
-    <div class="container">
-        <h2>About Human Stress Detection and Prediction System</h2>
-        <p>Information about the project...</p>
+    <nav>
+        <div class="nav-left">STRESSOGNOSTIC</div>
+        <div class="nav-center">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/help">HELP</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+        <div class="nav-right">
+
+            {% if user.is_authenticated %}
+            <!-- <div class="login-message">
+                <h3>HI ! </h3>
+            </div> -->
+            <a  href="/signout"> Sign Out</a>
+            {% else %}
+
+            <a  href="/signup"> Sign Up</a>
+            {% endif %}
+            
+            <a  href="/login"> Log In </a>
+            
+        </div>
+    </nav>
+
+  <header>
+    <section class="front-about">
+      <div class="content">
+        <br>
+        <h1>Understanding Stress and Our Mission</h1>
+        <h2>What is Stress?</h2>
+        <p>Stress is a natural response of the body and mind to challenges or demands. It can arise from daily responsibilities, unexpected challenges, or even exciting opportunities. While stress is a normal part of life, chronic stress can significantly impact physical, emotional, and mental well-being. Factors such as workload, financial concerns, relationships, or environmental pressures can trigger stress, affecting people differently.</p>
+        <div class="cta-buttons">
+          <button class="btn green">Our Mission</button>
+          <button class="btn white">Download Report</button>
+        </div>
+      </div>
+      <!-- <div class="hero-image"> -->
+        <img src="{% static 'images/Question.png' %}" alt="illustration">
+      <!-- </div> -->
+    </section>
+  </header>
+
+  <section class="stats">
+    <div class="stat-item">
+      <h2>Insomnia</h2>
+      <p>Leading cause <br>of Stress</p>
     </div>
+    <div class="stat-item">
+      <h2>75%</h2>
+      <p>Adults Experiencing <br>High Levels of Stress</p>
+    </div>
+    <div class="stat-item">
+      <h2>1 in 5</h2>
+      <p>Adults Globally Experience <br>Mental Health Challenges</p>
+    </div>
+    <div class="stat-item">
+      <h2>7-9 hrs</h2>
+      <p>Sleep Can Reduce <br>Stress Levels</p>
+    </div>
+  </section>
+
+  <section class="leaf-info">
+    <div class="leaf-text">
+      <h2>Why Predict Stress?</h2>
+      <p>In today's fast-paced world, stress is becoming increasingly prevalent, and understanding its early signs can help mitigate its adverse effects. Predicting stress levels allows individuals to take preventive actions, improve their well-being, and avoid stress-related health problems such as high blood pressure, heart disease, anxiety, and depression. By recognizing the physiological and psychological indicators, we can guide users toward better health and productivity.</p><br>
+      <button class="btn green">Learn more about Stress Prediction</button>
+    </div>
+  </section>
+
+  <section class="climate-change">
+    <h2>How Does Stress Prediction Work?</h2>
+    <p>At Stressognostic, our mission is to empower individuals by leveraging the power of Artificial Intelligence (AI) to predict stress levels accurately and efficiently. We aim to create a seamless and user-friendly experience where users can monitor their stress levels, understand contributing factors, and take proactive steps to achieve a balanced lifestyle.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Parameters We Use</h3>
+        <p>Snoring Rate <br>
+            Respiratory Rate <br>
+            Body Temperature <br>
+            Limb Movement <br>
+            Blood Oxygen Levels <br>
+            Eye Movement <br>
+            Sleep Hours <br>
+            Heart Rate</p>
+      </div>
+      <div class="card">
+        <h3>Why Choose Us?</h3>
+        <p>Scientific Approach: <br> Our model is backed by robust research and advanced machine learning algorithms. <br>
+            User-Friendly Interface: <br> Easy-to-use web app with real-time predictions. <br>
+            Personalized Insights: <br> Customized suggestions tailored to individual health data. <br>
+            Commitment to Well-being: <br> Helping individuals live healthier and more mindful lives. </p>
+      </div>
+      <div class="card">
+        <h3>Join Us in Reducing Stress</h3>
+        <p>Together, we can make stress management smarter, simpler, and more accessible. Explore the possibilities with Stressognostic and take the first step toward a stress-free future.</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

@@ -19,13 +19,13 @@ from django.contrib.auth import authenticate, login as auth_login, logout
 
 
 
-# ---------------- Loading the model and scaler at the top to avoid reloading every time ----------------
+# ------------- Loading the model and scaler at the top to avoid reloading every time -------------
 model = load_model('D:\Ankit-KCode\Human Stress Detection and Prediction\Human Stress Predictions.h5')
 scaler = joblib.load('D:\Ankit-KCode\Human Stress Detection and Prediction\scaler.pkl')
 
 
 
-# --------------------------------Stress Prediction Logic Function --------------------------------------
+# ------------------------------Stress Prediction Logic Function ----------------------------------
 
 def stress_prediction(request):
     # prediction = None
@@ -179,7 +179,7 @@ def insert_signup_user(request):
 
     us = Signup_Data(username=iusername, fullname=ifullname, email=iemail, password=ipassword, Cpassword=iCpassword);
     us.save();
-    
+
     return render(request, 'stress_prediction/login.html', {})
 
 
