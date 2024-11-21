@@ -52,8 +52,25 @@ def stress_prediction(request):
         result = model.predict(input_data)
         prediction = "Stressed" if result[0][0] > 0.5 else "Not Stressed"
         
-
         request.session['prediction'] = prediction
+
+
+        #----SQL Implementation - "stress_input" ----
+        conn = sql.connect(
+        host = '127.0.0.1',
+        user='root',
+        password='Ankitsql6060@#',
+        database= 'stress_prediction_app_db'
+        )
+
+        cursor = conn.cursor()
+        
+        comm = "INSERT INTO stress_input (Snoring_Rate, Respiratory_Rate, Body_Temperature, Limb_Movement, Blood_Oxygen, Eye_Movement, Sleep_Hours, Heart_Rate, Prediction) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        cursor.execute(comm, (snoring_rate, respiratory_rate, body_temperature, limb_movement, blood_oxygen, eye_movement, sleep_hours, heart_rate, prediction))
+        conn.commit()
+         # ------------
+
+
         return redirect('stress_result')
     else:
         return render(request, 'stress_prediction/stress_check.html')
@@ -103,7 +120,7 @@ def login(request):
         
 
         
-        #----SQL Implementation
+        #----SQL Implementation - "login_data" --------
         conn = sql.connect(
         host = '127.0.0.1',
         user='root',
@@ -116,7 +133,7 @@ def login(request):
         comm = "INSERT INTO login_data (name, age, gender, location, username, password) VALUES (%s, %s, %s, %s, %s, %s)"
         cursor.execute(comm, (name, age, gender, location, username, password))
         conn.commit()
-         # -----
+         # -----------
 
 
         #User matches or not
@@ -137,6 +154,7 @@ def login(request):
 
 
 def stress_check(request):
+
     return render(request, 'stress_prediction/stress_check.html')
 
 
@@ -191,7 +209,7 @@ def signup(request):
 
         
         try:
-            #----SQL Implementation
+            #----SQL Implementation - "signup_data" ------
             conn = sql.connect(
                 host = '127.0.0.1',
                 user='root',
@@ -215,7 +233,7 @@ def signup(request):
                 cursor.close()
             if conn:
                 conn.close()
-            # -----
+            # -------------
 
     return render(request, 'stress_prediction/signup.html')
 
