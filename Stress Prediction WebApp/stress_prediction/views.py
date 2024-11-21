@@ -2,16 +2,15 @@ import numpy as np
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from tensorflow.keras.models import load_model
+from django.views.decorators.csrf import csrf_protect
 import joblib
 
 # For Sign Up-------------------------------
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import Signup_Data
 
 # For SQL Implementation ------------------
 import mysql.connector as sql
-import mysql.connector
 
 # from django.contrib.auth import authenticate, login
 from django.contrib.auth import authenticate, login as auth_login, logout
@@ -27,6 +26,7 @@ scaler = joblib.load('D:\Ankit-KCode\Human Stress Detection and Prediction\scale
 
 # ------------------------------Stress Prediction Logic Function ----------------------------------
 
+@csrf_protect
 def stress_prediction(request):
     # prediction = None
     if request.method == 'POST':
@@ -77,10 +77,15 @@ def help(request):
 def contact(request):
     return render(request, 'stress_prediction/contact.html')
 
+
+@csrf_protect
 def login(request):
     if request.method == 'POST' :
         username = request.POST['username']
         password = request.POST['password']
+
+        conn = None
+        cursor = None
 
         # Store personal information in the session
         request.session['username'] = request.POST.get('username')
@@ -95,8 +100,11 @@ def login(request):
         #User matches or not
         if user is not None:
             auth_login(request, user)
-            fullname = user.first_name
-            return render(request, "stress_prediction/home.html", {'fullname' : fullname},)
+            # fullname = user.first_name
+            request.session['username'] = username
+            messages.success(request, "Logged in successfully!")
+            return redirect('home')
+            # return render(request, "stress_prediction/home.html", {'fullname' : fullname},)
         
         else:
             messages.error(request, "Bad Credentials!")
@@ -132,55 +140,67 @@ def stress_result(request):
 
 
 # ------------------------------------- For Sign Up ----------------------------------------
+@csrf_protect
 def signup(request):
 
     if request.method == "POST":
-        username = request.POST['username']
-        fullname = request.POST['fullname']
-        email = request.POST['email']
-        password = request.POST['password']
-        Cpassword = request.POST['Cpassword']
+        # username = request.POST['username']
+        # fullname = request.POST['fullname']
+        # email = request.POST['email']
+        # password = request.POST['password']
+        # Cpassword = request.POST['Cpassword']
+        usr = request.POST['username']
+        fname = request.POST['fullname']
+        em = request.POST['email']
+        ps = request.POST['password']
+        cpass = request.POST['Cpassword']
 
-        myuser = User.objects.create_user(username, email, password)
-        myuser.fullname = fullname
+        errors = {}
+
+        if ps != cpass:
+            messages.error(request, "Password do not match!")
+            return redirect('signup')
+        
+        if User.objects.filter(username=usr).exists():
+            messages.error(request, "Username already taken!")
+            return redirect('signup')
+        
+
+        myuser = User.objects.create_user(username=usr, email=em, password=ps)
+        myuser.first_name = fname
 
         myuser.save()
 
-        #----SQL Implementation
-        conn = sql.connect(
-        host = '127.0.0.1',
-        user='root',
-        password='Ankitsql6060@#',
-        database= 'stress_prediction_app_db'
-        )
 
-        cursor = conn.cursor()
+        
+        try:
+            #----SQL Implementation
+            conn = sql.connect(
+                host = '127.0.0.1',
+                user='root',
+                password='Ankitsql6060@#',
+                database= 'stress_prediction_app_db'
+            )
 
-        comm = "INSERT INTO signup (username, fullname, email, password, Cpassword) VALUES (%s, %s, %s, %s, %s)"
-        cursor.execute(comm, (username, fullname, email, password, Cpassword))
-        conn.commit()
-        conn.close()
-        #-----
+            cursor = conn.cursor()
+            
+            comm = "INSERT INTO signup_data (username, fullname, email, password, Cpassword) VALUES (%s, %s, %s, %s, %s)"
+            cursor.execute(comm, (usr, fname, em, ps, cpass))
+            conn.commit()
 
-        messages.success(request, "Your Account Has Been Successfully Created.")
+            messages.success(request, "Your Account Has Been Successfully Created.")
+            return redirect('login')
 
-        return redirect('login')
+        except sql.Error as e:
+            messages.error(request, f"Error:{e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+            # -----
 
     return render(request, 'stress_prediction/signup.html')
-
-
-#----------INSERTING SIGNUP DATA TO SQL DATABASE TABLE-----------
-def insert_signup_user(request):
-    iusername = request.POST['username'];
-    ifullname = request.POST['fullname'];
-    iemail = request.POST['email'];
-    ipassword = request.POST['password'];
-    iCpassword = request.POST['Cpassword'];
-
-    us = Signup_Data(username=iusername, fullname=ifullname, email=iemail, password=ipassword, Cpassword=iCpassword);
-    us.save();
-
-    return render(request, 'stress_prediction/login.html', {})
 
 
 #-------------------------------------------------------------
