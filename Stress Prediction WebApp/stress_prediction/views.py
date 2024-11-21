@@ -83,6 +83,10 @@ def login(request):
     if request.method == 'POST' :
         username = request.POST['username']
         password = request.POST['password']
+        name = request.POST['name']
+        age = request.POST['age']
+        gender = request.POST['gender']
+        location = request.POST['location']
 
         conn = None
         cursor = None
@@ -96,6 +100,24 @@ def login(request):
 
         #Authenticating the user
         user = authenticate(request, username=username, password=password)
+        
+
+        
+        #----SQL Implementation
+        conn = sql.connect(
+        host = '127.0.0.1',
+        user='root',
+        password='Ankitsql6060@#',
+        database= 'stress_prediction_app_db'
+        )
+
+        cursor = conn.cursor()
+        
+        comm = "INSERT INTO login_data (name, age, gender, location, username, password) VALUES (%s, %s, %s, %s, %s, %s)"
+        cursor.execute(comm, (name, age, gender, location, username, password))
+        conn.commit()
+         # -----
+
 
         #User matches or not
         if user is not None:
@@ -144,11 +166,6 @@ def stress_result(request):
 def signup(request):
 
     if request.method == "POST":
-        # username = request.POST['username']
-        # fullname = request.POST['fullname']
-        # email = request.POST['email']
-        # password = request.POST['password']
-        # Cpassword = request.POST['Cpassword']
         usr = request.POST['username']
         fname = request.POST['fullname']
         em = request.POST['email']
