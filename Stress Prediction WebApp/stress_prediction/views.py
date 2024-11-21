@@ -168,6 +168,26 @@ def stress_result(request):
     gender = request.session.get('gender', 'N/A')
     location = request.session.get('location', 'N/A')
 
+    #----SQL Implementation - "stress_result" ----
+    conn = sql.connect(
+    host = '127.0.0.1',
+    user='root',
+    password='Ankitsql6060@#',
+    database= 'stress_prediction_app_db'
+    )
+
+    cursor = conn.cursor()
+    comm = "INSERT INTO stress_result (Full_Name, Age, Gender, Location, Username, Prediction) VALUES (%s, %s, %s, %s, %s, %s)"
+
+    try:
+        cursor.execute(comm, (name, age, gender, location, username, prediction))
+        conn.commit()
+    except sql.Error as e:
+        print("SQL Error:", e)
+    finally:
+        conn.close()
+    # ---------------
+
     return render(request, 'stress_prediction/stress_result.html', {
         'prediction': prediction,
         'username': username,
@@ -176,6 +196,7 @@ def stress_result(request):
         'gender': gender,
         'location': location
         })
+
 
 
 
