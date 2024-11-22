@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">STRESSOGNOSTIC</div>
+        <div class="nav-center">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/help">HELP</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+        <div class="nav-right">
+
+            {% if user.is_authenticated %}
+            <!-- <div class="login-message">
+                <h3>HI ! </h3>
+            </div> -->
+            <a  href="/signout"> Sign Out</a>
+            {% else %}
+
+            <a  href="/signup"> Sign Up</a>
+            {% endif %}
+            
+            <a  href="/login"> Log In </a>
+            
+        </div>
+    </nav>
+    <header class="contact-header">
+        <h1>Contact Me</h1>
+        <p>There are lots of ways to contact STRESSOGNOSTIC — please read the options below to make sure you're using the best one.</p>
+    </header>
+
+    <section class="contact-options">
+        <div class="contact-card">
+            <h3>Send Mail</h3>
+            <p>📧 Email ID</p>
+            <p>ankitkumar6060@gmail.com</p>
+            <button>Send Mail</button>
+        </div>
+        <div class="contact-card">
+            <h3>Connect On LinkedIn</h3>
+            <p>📱 ANKIT KUMAR</p>
+            <p>ankitkumar6060</p>
+            <button>LinkedIn</button>
+        </div>
+        <div class="contact-card">
+            <h3>Follow On Instagram</h3>
+            <p>🆔 USERNAME</p>
+            <p>pixel.lens____</p>
+            <button>Instagram</button>
+        </div>
+    </section>
+
+    <section class="general-inquiries">
+        <h2>General Inquiries</h2>
+        <p>For other inquiries, use the form below and we’ll direct your message to the right place.</p>
+        <form>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Phone number">
+            <textarea placeholder="Write message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="contact-footer">
+        <div>
+            <h3>Follow Me</h3>
+            <p>You Can Follow Me On My Social Media, I am active socially — Choose Your Platform:</p>
+            <p>
+                <a href="#">LinkedIn</a> | 
+                <a href="#">Twitter</a> | 
+                <a href="#">Instagram</a> | 
+                <a href="#">GitHub</a>
+            </p>
+        </div>
+        <hr>
+        <div>
+            <h3>Thanks For Using STRESSOGNOSTIC</h3>
+            <p>This Project Had Taken My Time & Efforts. If You Like This Project Connect With Me On LinkedIn.</p>
+            <button><a href="">LinkedIn</a></button>
+        </div>
+    </footer>
+</body>
+</html>

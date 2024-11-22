@@ -151,7 +151,7 @@ footer {
     font-size: 25px;
 }
 
-/* ----------------------------------- Form Styles ----------------------------------*/
+/* ------------------------------------- Form Styles ------------------------------------*/
 .signup-form{
     display: flex;
     flex-direction: column;
@@ -274,7 +274,7 @@ h2, h3 {
 
 
 
-/* ----------------------------- Result Page Styles --------------------------------------*/
+/* ------------------------------- Result Page Styles --------------------------------------*/
 .result-text {
     text-align: center;
     padding: 20px;
@@ -299,6 +299,92 @@ h2, h3 {
     background-color: #1aaf1a; /* Green for not stressed */
     color: white;
 }
+
+/*----- Personal Information ------*/
+/* .personal-info {
+    margin: 2rem 0;
+  }
+  
+  .personal-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #00796b;
+  }
+  
+  .info-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    background: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .info-item {
+    background: #f1f8e9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 1rem);
+  }
+  
+  .info-label {
+    font-weight: bold;
+    display: block;
+    color: #388e3c;
+  }
+  
+  .info-value {
+    margin-top: 0.5rem;
+    display: block;
+    font-size: 1.1rem;
+  }
+
+
+  /*----- Suggestions BOX ------*/
+  /* .suggestions {
+    margin: 2rem 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  
+  .suggestions h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #00796b;
+  }
+  
+  .suggestions ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .suggestions li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #424242;
+    padding-left: 1rem;
+    position: relative;
+  }
+  
+  .suggestions li::before {
+    content: '✔';
+    color: #4caf50;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem; 
+  } */
+
+
 
 
 
@@ -416,92 +502,134 @@ body {
 
 
 
+/* ------------------------------------ CONTACT PAGE ------------------------------------------ */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* css
-Copy code
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f9;
-}
-
-.container {
-    width: 90%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-h2 {
+/* Header Section */
+.contact-header {
     text-align: center;
-    color: #333;
+    padding: 5rem 2rem;
+    background: #00a79b;
+    color: white;
 }
 
-label {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #555;
+.contact-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+/* Contact Cards */
+.contact-options {
+    
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 1rem;
+    background: #fff;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    background-color: #007bff;
-    color: #fff;
+.contact-card {
+    background: #f5f5f5;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    width: 30%;
+}
+
+.contact-card h3 {
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    margin: 0.5rem 0;
+}
+
+.contact-card button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #00a79b;
+    color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
+.contact-card button:hover {
+    background: #45a049;
 }
 
-.result {
-    margin-top: 15px;
+/* General Inquiries Section */
+.general-inquiries {
     text-align: center;
-    font-size: 1.2em;
+    padding: 2rem 1rem;
+    background: #fff;
 }
- */
 
+.general-inquiries h2 {
+    margin-bottom: 1rem;
+}
 
- /* Basic reset */
+.general-inquiries form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.general-inquiries form input,
+.general-inquiries form textarea {
+    width: 80%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #9c9b9b;
+    border-radius: 5px;
+}
 
-  /* For Result Page : stress_result-------------------------------------------------------- */
+.general-inquiries form button {
+    padding: 0.75rem 2rem;
+    background: #00a79b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.general-inquiries form button:hover {
+    background: #45a049;
+}
+
+/* Footer Section */
+.contact-footer {
+    display: flex;
+    justify-content: space-between;
+    background: #f5f5f5;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    width: 1150px;
+    left: 135px;
+    gap: 30px;
+    font-size: medium;
+}
+
+.contact-footer h3 {
+    margin-bottom: 1rem;
+}
+
+.contact-footer p {
+    margin: 0.3rem 0;
+}
+
+.contact-footer button {
+    padding: 0.5rem 1rem;
+    background: #00a79b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-footer button:hover {
+    background: #45a049;
+}
