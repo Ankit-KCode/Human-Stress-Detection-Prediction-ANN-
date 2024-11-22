@@ -1,13 +1,163 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>help</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help | Stressognostic</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    
-    <h2>help</h2>
+    <nav>
+        <div class="nav-left">STRESSOGNOSTIC</div>
+        <div class="nav-center">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/help">HELP</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+        <div class="nav-right">
 
+            {% if user.is_authenticated %}
+            <!-- <div class="login-message">
+                <h3>HI ! </h3>
+            </div> -->
+            <a  href="/signout"> Sign Out</a>
+            {% else %}
+
+            <a  href="/signup"> Sign Up</a>
+            {% endif %}
+            
+            <a  href="/login"> Log In </a>
+            
+        </div>
+    </nav>
+
+  <div class="help-container">
+    <!-- First Section -->
+    <div class="section">
+      <div class="text-content">
+        <h1>Home : STRESSOGNOSTIC</h1>
+        <p>
+          This is the Home or Landing page of my Website. Here Explore different sections Like: About, Help & Contact. You Can Directly Login and Sign Up from the Home.
+        </p>
+        <button class="read-more">HOME</button>
+      </div>
+      <div class="image-content">
+        <img src="{% static 'images/home.png' %}" alt="Home Page">
+      </div>
+    </div>
+
+    <!-- Second Section -->
+    <div class="section">
+      <div class="image-content">
+        <img src="{% static 'images/signup.png' %}" alt="Signup Page">
+      </div>
+      <div class="text-content">
+        <h1>Sign Up : New User</h1>
+        <p>
+          Firstly, If you are a new user on this Website, Then You can Sign Up or Register by clicking on "Sign Up" Botton. This will redirect to Sign Up Page, where you have to provide required data to Create an account successfully.
+        </p>
+        <button class="read-more">SIGN UP</button>
+      </div>
+    </div>
+
+
+
+    <!-- Third Section -->
+    <div class="section">
+        <div class="text-content">
+          <h1>Login : After SignUp/Existing User</h1>
+          <p>
+            After SignUp/Existing User Can Login into your account. For Login You have to provide some Personal Information and then Login - Username & Password for Successful Login into your account.
+          </p>
+          <button class="read-more">LOGIN</button>
+        </div>
+        <div class="image-content">
+          <img src="{% static 'images/login.png' %}" alt="Home Page">
+        </div>
+      </div>
+  
+      <!-- Forth Section -->
+      <div class="section">
+        <div class="image-content">
+          <img src="{% static 'images/After_Signup_Login.png' %}" alt="Signup Page">
+        </div>
+        <div class="text-content">
+          <h1>Home : After Login</h1>
+          <p>
+            After Successful Login You will redirect to Home Page with Logged in Home, Where your Username will Show and Stress Check Botton will Available & Click to Check Stress.
+          </p>
+          <button class="read-more">HOME</button>
+        </div>
+      </div>
+
+
+
+    <!-- Fifth Section -->
+    <div class="section">
+        <div class="text-content">
+          <h1>Stress Prediction : Input Data</h1>
+          <p>
+            To Check Your Stress, Input Your Stress Parameters data Like:  Respiration, Sleep, Movement etc. Then You have to just Click on "Predict Stress Level" & You will redirect to your stress result Dashboard.
+          </p>
+          <button class="read-more">Prediction</button>
+        </div>
+        <div class="image-content">
+          <img src="{% static 'images/Stress_Data_Input.png' %}" alt="Home Page">
+        </div>
+      </div>
+  
+      <!-- Sixth Section -->
+      <div class="section">
+        <div class="image-content">
+          <img src="{% static 'images/Stress_Result.png' %}" alt="Signup Page">
+        </div>
+        <div class="text-content">
+          <h1>Stress Result : If "Stressed"</h1>
+          <p>
+            After Input data If You are "Stressed": Then this interface will show along with Personal Information. You Can Recheck You Stress Using Above "Check Again" Button.
+            You can scroll to get some suggestions to Stay Calm and Stress Free.
+          </p>
+          <button class="read-more">Stressed</button>
+        </div>
+      </div>
+
+
+
+      <!-- Seventh Section -->
+      <div class="section">
+          <div class="text-content">
+              <h1>Stress Result : If "Not Stressed"</h1>
+              <p>
+                After Input data If You are "Not Stressed": Then this interface will show along with Personal Information. You Can Recheck You Stress Using Above "Check Again" Button.
+                You can scroll to get some suggestions to Stay Calm and Stress Free.
+              </p>
+                <button class="read-more">Not Stressed</button>
+            </div>
+            <div class="image-content">
+              <img src="{% static 'images/Not_Stress_Result.png' %}" alt="Signup Page">
+            </div>
+      </div>
+
+
+      <!-- Thankyou Section -->
+      <div class="section">
+        <div class="image-content">
+            <img src="{% static 'images/Thankyou Card.png' %}" alt="Signup Page">
+        </div>
+        <div class="text-content">
+            <h1>Thanks For Visiting & Using STRESSOGNOSTIC</h1>
+            <p>
+              A Very Thankyou For Visiting My Website & Using STRESSOGNOSTIC. This Project had taken My Time & Efforts and Have a great experience. The Prediction is based on Artificial Neural Network Model, Which is highly Accurate.
+              Thanks.
+            </p>
+              <button class="read-more">Ankit Kumar</button>
+          </div>
+    </div>
+
+
+
+  </div>
 </body>
 </html>
