@@ -23,6 +23,7 @@
                 <!-- <div class="login-message">
                     <h3>HI ! </h3>
                 </div> -->
+                <a href="/stress-check">CHECK AGAIN</a>
                 <a  href="/signout"> Sign Out</a>
                 {% else %}
     
@@ -56,14 +57,53 @@
             </div>
 
             
-            <div class="personal-info">
+            <!-- <div class="personal-info">
                 <h3>PERSONAL INFORMATION</h3>
                 <p>Username: {{ username }}</p>
                 <p>Full Name: {{ name }}</p>
                 <p>Age: {{ age }}</p>
                 <p>Gender: {{ gender }}</p>
                 <p>Location: {{ location }}</p>
-            </div>
+            </div> -->
+
+            <section class="personal-info">
+                <h2>Personal Information</h2>
+                <div class="info-card">
+                  <div class="info-item">
+                    <span class="info-label">Username:</span>
+                    <span class="info-value">{{ username }}</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Full Name:</span>
+                    <span class="info-value">{{ name }}</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Age:</span>
+                    <span class="info-value">{{ age }}</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Gender:</span>
+                    <span class="info-value">{{ gender }}</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Location:</span>
+                    <span class="info-value">{{ location }}</span>
+                  </div>
+                </div>
+            </section>
+            <section class="suggestions">
+                <h2>Suggestions</h2>
+                <ul>
+                  <li>Practice deep breathing exercises to relax your mind.</li>
+                  <li>Engage in physical activities like walking or yoga daily.</li>
+                  <li>Maintain a healthy diet and ensure proper hydration.</li>
+                  <li>Take short breaks and avoid overburdening yourself.</li>
+                  <li>Stay connected with supportive family and friends.</li>
+                  <li>Consider journaling your thoughts to clear mental clutter.</li>
+                </ul>
+            </section>
+
+
         </div>
         
     </main>
